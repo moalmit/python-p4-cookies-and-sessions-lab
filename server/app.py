@@ -28,7 +28,7 @@ def index_articles():
 @app.route('/articles/<int:id>')
 def show_article(id):
 
-    session['page_views'] = session.get('page_views', 0)
+    session.setdefault('page_views', 0)
     session['page_views'] += 1
 
     if session['page_views'] <= 3:
